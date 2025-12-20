@@ -38,15 +38,16 @@ public class LekuaController {
     }
 
     // 🗺️ Datos mínimos para Leaflet
+
     @GetMapping("/mapa")
     public List<LekuaMapDTO> lortuMapaDatuak() {
-        return lekuaRepository.findAll()
-                .stream()
-                .map(l -> new LekuaMapDTO(
-                        l.getIzena(),
-                        l.getLatitud(),
-                        l.getLongitud()
-                ))
+        List<Lekua> lekuak = lekuaRepository.findAll();
+        System.out.println("Número de lekuak en BD: " + lekuak.size());
+        lekuak.forEach(l -> System.out.println(l.getIzena() + " -> " + l.getLocation()));
+
+        return lekuak.stream()
+                .map(l -> new LekuaMapDTO(l.getIzena(), l.getLatitud(), l.getLongitud()))
                 .collect(Collectors.toList());
     }
+
 }
