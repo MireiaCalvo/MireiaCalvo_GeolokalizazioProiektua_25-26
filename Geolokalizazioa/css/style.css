@@ -1,0 +1,399 @@
+:root {
+    /* Light theme - Tech/Geek inspired (blue/cyan/purple) */
+    --light-bg: #eef2ff; /* Very light blue */
+    --light-container-bg: #ffffff;
+    --light-text: #1a1a2e; /* Dark blue for text */
+    --light-navbar-bg: #4d5dfb; /* Bright tech blue */
+    --light-navbar-text: #ffffff;
+    --light-primary: #6c63ff; /* Purple-blue */
+    --light-secondary: #00c9ff; /* Cyan for accents */
+    --light-accent: #8a2be2; /* Geek purple */
+    --light-border: #b3cde0; /* Soft blue border */
+    --light-card-bg: #f8f9ff;
+
+    /* Dark theme - Cyberpunk/Matrix inspired - Adjusted for better contrast */
+    --dark-bg: #0a0a0f; /* Very dark blue/black */
+    --dark-container-bg: #151522; /* Dark purple-blue */
+    --dark-text: #e0e0ff; /* Light blue text */
+    --dark-navbar-bg: #1a1a2e; /* Dark blue navbar */
+    --dark-navbar-text: #00ffff; /* CYAN for navbar text */
+    --dark-primary: #00aaff; /* Softer, darker cyan - better for buttons */
+    --dark-secondary: #cc00ff; /* Softer magenta */
+    --dark-accent: #00cc00; /* Softer green */
+    --dark-border: #2a2a3e; /* Dark blue border */
+    --dark-card-bg: #1e1e2e; /* Slightly lighter than container */
+
+    /* Default theme */
+    --bg-color: var(--light-bg);
+    --container-bg: var(--light-container-bg);
+    --text-color: var(--light-text);
+    --navbar-bg: var(--light-navbar-bg);
+    --navbar-text: var(--light-navbar-text);
+    --primary-color: var(--light-primary);
+    --secondary-color: var(--light-secondary);
+    --accent-color: var(--light-accent);
+    --border-color: var(--light-border);
+    --card-bg: var(--light-card-bg);
+}
+
+.dark-theme {
+    --bg-color: var(--dark-bg);
+    --container-bg: var(--dark-container-bg);
+    --text-color: var(--dark-text);
+    --navbar-bg: var(--dark-navbar-bg);
+    --navbar-text: var(--dark-navbar-text);
+    --primary-color: var(--dark-primary);
+    --secondary-color: var(--dark-secondary);
+    --accent-color: var(--dark-accent);
+    --border-color: var(--dark-border);
+    --card-bg: var(--dark-card-bg);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.container-centered {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--container-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+    border: 1px solid var(--border-color);
+}
+
+/* Navbar styling - Friki style */
+.navbar-custom {
+    background-color: var(--navbar-bg) !important;
+    padding: 15px 20px;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: var(--navbar-text) !important;
+    font-weight: 600;
+    font-family: 'Courier New', monospace; /* Geeky font! */
+}
+
+.navbar-custom .nav-link:hover {
+    color: var(--accent-color) !important;
+    text-shadow: 0 0 8px var(--accent-color); /* Glow effect! */
+}
+
+.navbar-custom .nav-link.active {
+    color: var(--accent-color) !important;
+    border-bottom: 3px solid var(--accent-color);
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+/* Geeky theme toggle switch */
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    padding: 5px 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.theme-toggle-label {
+    margin-right: 10px;
+    color: var(--navbar-text);
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    transition: .4s;
+    border-radius: 34px;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+}
+
+.theme-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.dark-theme .theme-toggle-slider {
+    background-color: #cc00ff;
+    border-color: #00aaff;
+    box-shadow: 0 0 10px rgba(204, 0, 255, 0.5);
+}
+
+input:checked + .theme-toggle-slider:before {
+    transform: translateX(30px);
+}
+
+/* Main content */
+.main-content {
+    padding: 40px;
+    min-height: 500px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 15px;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px rgba(0, 200, 255, 0.3);
+}
+
+h2, h3, h4 {
+    font-family: 'Courier New', monospace;
+}
+
+.content-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-color);
+}
+
+.content-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.content-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+/* FIXED BUTTON STYLES - Better contrast */
+.btn-custom {
+    background-color: var(--primary-color);
+    color: #ffffff !important; /* Always white text for contrast */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-custom:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    color: #ffffff !important;
+    border-color: var(--accent-color);
+}
+
+/* Outline buttons for kategoria section */
+.btn-outline-custom {
+    background-color: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-color) !important; /* Use theme text color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-align: left;
+}
+
+.btn-outline-custom:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff !important; /* White text on hover */
+    transform: translateY(-2px);
+}
+
+/* Specific fixes for dark theme buttons */
+.dark-theme .btn-custom {
+    background-color: var(--primary-color); /* Softer cyan */
+    color: #000000 !important; /* Black text for contrast on cyan */
+    font-weight: 700; /* Bolder text */
+    border-color: var(--primary-color);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.dark-theme .btn-custom:hover {
+    background-color: var(--accent-color); /* Softer green */
+    color: #000000 !important; /* Black text on green */
+    border-color: var(--accent-color);
+}
+
+.dark-theme .btn-outline-custom {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-color);
+    color: var(--text-color) !important; /* Light blue text */
+    font-weight: 600;
+}
+
+.dark-theme .btn-outline-custom:hover {
+    background-color: var(--primary-color); /* Softer cyan */
+    border-color: var(--primary-color);
+    color: #000000 !important; /* Black text on cyan */
+}
+
+/* Badge styling in buttons */
+.btn-outline-custom .badge {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.dark-theme .btn-outline-custom .badge {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+.btn-custom .badge {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #000000;
+}
+
+.dark-theme .btn-custom .badge {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+}
+
+/* Map control buttons */
+.map-controls .btn-custom {
+    background-color: var(--secondary-color);
+    color: #ffffff !important;
+    border-color: var(--secondary-color);
+}
+
+.dark-theme .map-controls .btn-custom {
+    background-color: var(--secondary-color); /* Magenta */
+    color: #ffffff !important; /* White text on magenta */
+    border-color: var(--secondary-color);
+}
+
+.dark-theme .map-controls .btn-custom:hover {
+    background-color: var(--accent-color); /* Green */
+    color: #000000 !important; /* Black text on green */
+    border-color: var(--accent-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--navbar-bg);
+    color: var(--navbar-text);
+    padding: 20px;
+    text-align: center;
+    border-top: 3px solid var(--accent-color);
+    font-family: 'Courier New', monospace;
+}
+
+/* Page content */
+.page-content {
+    display: none;
+}
+
+.page-content.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Special effects for dark/geek mode */
+.dark-theme .content-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .content-card:hover {
+    box-shadow: 0 8px 15px rgba(0, 170, 255, 0.1); /* Softer cyan glow */
+}
+
+/* Geeky table styles for dark mode */
+.dark-theme table {
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+.dark-theme .table-hover tbody tr:hover {
+    background-color: rgba(0, 170, 255, 0.05); /* Softer cyan */
+    color: #ffffff;
+}
+
+.dark-theme thead {
+    background-color: rgba(0, 170, 255, 0.1); /* Softer cyan */
+    color: var(--dark-primary);
+}
+
+/* Code-like text for geeky feel */
+.code-text {
+    font-family: 'Courier New', monospace;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border-left: 3px solid var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container-centered {
+        border-radius: 10px;
+        margin: 0 10px;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
+    .theme-toggle-container {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switching Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome ikonoentzako -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container-centered">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <i class='fa-solid fa-map-location-dot me-2'></i>Friki Map
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-page="hasiera">Hasiera</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="areak">Areak</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-page="dendak">Dendak</a>
+                        </li>
+                    </ul>
+
+                    <div class="theme-toggle-container">
+                        <span class="theme-toggle-label">Light</span>
+                        <label class="theme-toggle">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="theme-toggle-slider"></span>
+                        </label>
+                        <span class="theme-toggle-label ms-2">Dark</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Hasiera Page -->
+            <div id="hasiera" class="page-content active">
+                <h1><i class="fas fa-home me-2"></i>Hasiera</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="content-card">
+                            <div class="content-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <h3>Light/Dark Theme</h3>
+                            <p>This website features a fully functional theme switcher. Click the toggle switch in the
+                                navbar to switch between light and dark modes.</p>
+                            <p>The light theme uses blue and purple colors while the dark theme uses black and gray
+                                tones.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="content-card">
+                            <div class="content-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3>Color Schemes</h3>
+                            <p>Light theme colors: Various shades of blue and purple for a fresh, clean look.</p>
+                            <p>Dark theme colors: Black, gray, and dark tones for reduced eye strain in low-light
+                                conditions.</p>
+                            <button class="btn-custom" id="toggleDemo">Toggle Theme Demo</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <h3>Centered Layout</h3>
+                    <p>The website content is centered and doesn't use the full screen width. This creates a more
+                        focused reading experience and looks great on all screen sizes.</p>
+                    <p>Try resizing your browser window to see how the layout adapts to different screen sizes while
+                        maintaining the centered design.</p>
+                </div>
+            </div>
+
+            <!-- Areak Page -->
+            <div id="areak" class="page-content">
+                <h1><i class="fas fa-th-large me-2"></i>Areak</h1>
+
+                <!-- Explanation Section (Above) -->
+                <div class="content-card mb-4">
+                    <h3><i class="fas fa-info-circle me-2"></i>Maparen Informazioa</h3>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>Hemen ikusiko duzu <strong>Friki Map</strong> proiektuak eskaintzen dituen gune nagusiak.
+                                Mapan markatutako lekuak gure proiektuak babesten dituzten establezimendu komertzialak
+                                dira.</p>
+                            <p>Markagailu bakoitzak mota desberdina adierazten du:</p>
+                            <ul>
+                                <li><span class="badge me-2" style="background-color: #00ffff; color: #000;">🔵</span>
+                                    Denda nagusiak - Produktu sorta zabala</li>
+                                <li><span class="badge me-2" style="background-color: #ff00ff; color: #fff;">🟣</span>
+                                    Joko-dendak - Bideo-joko eta board games</li>
+                                <li><span class="badge me-2" style="background-color: #00ff00; color: #000;">🟢</span>
+                                    Komiki-dendak - Komikiak eta manga</li>
+                                <li><span class="badge me-2" style="background-color: #ffff00; color: #000;">🟡</span>
+                                    Kafeak eta topalekuak - Friki giroa</li>
+                            </ul>
+                            <p>Erabili eskumako panelaren botoiak mapa pertsonalizatzeko edo hautatu intereseko gunea
+                                zuzenean.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="content-card h-100">
+                                <h5><i class="fas fa-filter me-2"></i>Datu Berriak</h5>
+                                <p><i class="fas fa-map-marker-alt text-primary me-2"></i><strong>25+</strong> kokaleku
+                                    kartografiatuta</p>
+                                <p><i class="fas fa-store text-secondary me-2"></i><strong>6</strong> kategoria
+                                    desberdin</p>
+                                <p><i class="fas fa-sync text-accent me-2"></i>Eguneraketa astero</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map and Buttons Section (Below, side by side) -->
+                <div class="row mt-4">
+                    <!-- Map Container (Bigger - 8 columns) -->
+                    <div class="col-lg-8 mb-4">
+                        <div class="content-card h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i>Friki Map - Euskal Herria
+                                </h4>
+                                <button class="btn btn-custom">
+                                    <i class="fas fa-location-arrow me-1"></i> Kokapena
+                                </button>
+                            </div>
+
+                            <!-- Google Maps Placeholder -->
+                            <div class="map-container"
+                                style="border-radius: 8px; overflow: hidden; border: 2px solid var(--border-color);">
+                                <!-- Google Maps Embed Placeholder -->
+                                <div id="googleMap"
+                                    style="height: 500px; background: linear-gradient(135deg, var(--card-bg) 25%, var(--border-color) 25%, var(--border-color) 50%, var(--card-bg) 50%, var(--card-bg) 75%, var(--border-color) 75%, var(--border-color) 100%); background-size: 40px 40px; position: relative;">
+                                    <!-- Simulated map markers -->
+                                    <div class="map-marker" style="position: absolute; top: 30%; left: 40%;">
+                                        <i class="fas fa-map-pin fa-2x"
+                                            style="color: #00ffff; filter: drop-shadow(0 0 5px #00ffff);"></i>
+                                        <div class="marker-label"
+                                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 2px 8px; border-radius: 4px; white-space: nowrap; font-size: 12px;">
+                                            Bilbo - Jokodenda</div>
+                                    </div>
+                                    <div class="map-marker" style="position: absolute; top: 50%; left: 60%;">
+                                        <i class="fas fa-map-pin fa-2x"
+                                            style="color: #ff00ff; filter: drop-shadow(0 0 5px #ff00ff);"></i>
+                                        <div class="marker-label"
+                                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 2px 8px; border-radius: 4px; white-space: nowrap; font-size: 12px;">
+                                            Gasteiz - Komiki-denda</div>
+                                    </div>
+                                    <div class="map-marker" style="position: absolute; top: 40%; left: 30%;">
+                                        <i class="fas fa-map-pin fa-2x"
+                                            style="color: #00ff00; filter: drop-shadow(0 0 5px #00ff00);"></i>
+                                        <div class="marker-label"
+                                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 2px 8px; border-radius: 4px; white-space: nowrap; font-size: 12px;">
+                                            Donostia - Friki Kafea</div>
+                                    </div>
+
+                                    <!-- Map controls simulation -->
+                                    <div class="map-controls"
+                                        style="position: absolute; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px;">
+                                        <button class="btn btn-custom btn-sm"
+                                            style="width: 40px; height: 40px; border-radius: 50%; padding: 0;">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <button class="btn btn-custom btn-sm"
+                                            style="width: 40px; height: 40px; border-radius: 50%; padding: 0;">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button class="btn btn-custom btn-sm"
+                                            style="width: 40px; height: 40px; border-radius: 50%; padding: 0;">
+                                            <i class="fas fa-crosshairs"></i>
+                                        </button>
+                                    </div>
+
+                                    <!-- Map watermark -->
+                                    <div
+                                        style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 4px; font-size: 12px;">
+                                        <i class="fas fa-map me-1"></i> Google Maps © Friki Map
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Map legend -->
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge" style="background-color: #00ffff; color: #000;"><i
+                                                class="fas fa-gamepad me-1"></i> Joko-dendak</span>
+                                        <span class="badge" style="background-color: #ff00ff; color: #fff;"><i
+                                                class="fas fa-book me-1"></i> Komikiak</span>
+                                        <span class="badge" style="background-color: #00ff00; color: #000;"><i
+                                                class="fas fa-coffee me-1"></i> Kafeak</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <small class="text-muted"><i class="fas fa-sync-alt me-1"></i> Azken eguneraketa:
+                                        2023-11-15</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons Panel (Smaller - 4 columns) -->
+                    <div class="col-lg-4 mb-4">
+                        <div class="content-card h-100">
+                            <h4 class="mb-4"><i class="fas fa-sliders-h me-2"></i>Maparen Kontrolak</h4>
+
+                            <!-- Category Filter Buttons -->
+                            <div class="mb-4">
+                                <h5><i class="fas fa-filter me-2"></i>Kategoriak</h5>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-custom btn-block text-start" data-category="all">
+                                        <i class="fas fa-layer-group me-2"></i> Dena ikusi
+                                        <span class="badge bg-light text-dark float-end">25</span>
+                                    </button>
+                                    <button class="btn btn-outline-custom btn-block text-start" data-category="games">
+                                        <i class="fas fa-gamepad me-2"></i> Joko-dendak
+                                        <span class="badge float-end">8</span>
+                                    </button>
+                                    <button class="btn btn-outline-custom btn-block text-start" data-category="comics">
+                                        <i class="fas fa-book me-2"></i> Komiki-dendak
+                                        <span class="badge float-end">6</span>
+                                    </button>
+                                    <button class="btn btn-outline-custom btn-block text-start" data-category="cafes">
+                                        <i class="fas fa-coffee me-2"></i> Friki Kafeak
+                                        <span class="badge float-end">5</span>
+                                    </button>
+                                    <button class="btn btn-outline-custom btn-block text-start" data-category="stores">
+                                        <i class="fas fa-store me-2"></i> Denda Orokorrak
+                                        <span class="badge float-end">4</span>
+                                    </button>
+                                    <button class="btn btn-outline-custom btn-block text-start" data-category="events">
+                                        <i class="fas fa-calendar-alt me-2"></i> Ekitaldiak
+                                        <span class="badge float-end">2</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Location Buttons -->
+                            <div class="mb-4">
+                                <h5><i class="fas fa-city me-2"></i>Hiri Nagusiak</h5>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-custom btn-block">
+                                            <i class="fas fa-map-marker-alt me-1"></i> Bilbo
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-custom btn-block">
+                                            <i class="fas fa-map-marker-alt me-1"></i> Gasteiz
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-custom btn-block">
+                                            <i class="fas fa-map-marker-alt me-1"></i> Donostia
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-custom btn-block">
+                                            <i class="fas fa-map-marker-alt me-1"></i> Iruñea
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Map Actions -->
+                            <div class="mb-4">
+                                <h5><i class="fas fa-cogs me-2"></i>Ekintzak</h5>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-custom btn-block">
+                                        <i class="fas fa-download me-2"></i> Deskargatu mapa
+                                    </button>
+                                    <button class="btn btn-custom btn-block">
+                                        <i class="fas fa-share-alt me-2"></i> Partekatu
+                                    </button>
+                                    <button class="btn btn-custom btn-block" data-bs-toggle="modal" data-bs-target="#suggestionModal">
+                                        <i class="fas fa-plus-circle me-2"></i> Iradoki leku berria
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Quick Stats -->
+                            <div class="mt-4 pt-3 border-top">
+                                <h6><i class="fas fa-chart-bar me-2"></i>Estatistikak</h6>
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <div class="display-6">25</div>
+                                        <small>Lekuak</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="display-6">6</div>
+                                        <small>Kategoriak</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="display-6">4</div>
+                                        <small>Hiriak</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggestion Modal (Hidden by default) -->
+                <div class="modal fade" id="suggestionModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><i class="fas fa-plus-circle me-2"></i>Iradoki leku berria</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Zehaztu mapa gehitzea gustatuko litzaizukeen leku berria:</p>
+                                <div class="mb-3">
+                                    <label class="form-label">Lekuaren izena</label>
+                                    <input type="text" class="form-control" placeholder="Adib: Bilboko Joko-denda">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Kokapena</label>
+                                    <input type="text" class="form-control" placeholder="Adib: Bilbo, Kale Nagusia 123">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Kategoria</label>
+                                    <select class="form-select">
+                                        <option>Joko-denda</option>
+                                        <option>Komiki-denda</option>
+                                        <option>Friki Kafea</option>
+                                        <option>Denda Orokorra</option>
+                                        <option>Ekitaldia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Utzi</button>
+                                <button type="button" class="btn btn-custom">Bidali iradokizuna</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dendak Page -->
+            <div id="dendak" class="page-content">
+                <h1><i class="fas fa-store-alt me-2"></i>Dendak</h1>
+
+                <!-- Explanation Section (Above) -->
+                <div class="content-card mb-4">
+                    <h3><i class="fas fa-info-circle me-2"></i>Dendaren Informazioa</h3>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>Hemen ikusiko duzu <strong>Friki Map</strong> proiektuak biltzen dituen dendak eta 
+                                establezimendu komertzialak. Denda bakoitzak friki kulturaren alor desberdin bat 
+                                jorratzen du.</p>
+                            <p>Kategoriak eta bere ezaugarriak:</p>
+                            <ul>
+                                <li><span class="badge me-2" style="background-color: #00ffff; color: #000;">🔵</span>
+                                    Joko-dendak - Bideojokoak, mahai-jokoak eta RPG materialak</li>
+                                <li><span class="badge me-2" style="background-color: #ff00ff; color: #fff;">🟣</span>
+                                    Komiki-dendak - Komikiak, manga eta grafiko eleberriak</li>
+                                <li><span class="badge me-2" style="background-color: #00ff00; color: #000;">🟢</span>
+                                    Friki Kafeak - Giropenak, joko gaueak eta topalekuak</li>
+                                <li><span class="badge me-2" style="background-color: #ffff00; color: #000;">🟡</span>
+                                    Denda Orokorrak - Friki produktu anitzak</li>
+                            </ul>
+                            <p>Erabili eskumako panelaren botoiak dendak iragazteko edo kokaleku zehatzak ikusteko.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="content-card h-100">
+                                <h5><i class="fas fa-chart-line me-2"></i>Estatistikak</h5>
+                                <p><i class="fas fa-store text-primary me-2"></i><strong>25+</strong> denda aktibo</p>
+                                <p><i class="fas fa-tags text-secondary me-2"></i><strong>6</strong> kategoria nagusi</p>
+                                <p><i class="fas fa-users text-accent me-2"></i><strong>1000+</strong> erabiltzaile</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map and Buttons Section (Below, side by side) -->
+                <div class="row mt-4">
+                    <!-- Map Container (Bigger - 8 columns) -->
+                    <div class="col-lg-8 mb-4">
+                        <div class="content-card h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4 class="mb-0"><i class="fas fa-map-marked-alt me-2"></i>Friki Dendak - Euskal Herria</h4>
+                                <button class="btn btn-custom">
+                                    <i class="fas fa-search-location me-1"></i> Bilatu denda
+                                </button>
+                            </div>
+
+                            <!-- Google Maps Placeholder -->
+                            <div class="map-container"
+                                style="border-radius: 8px; overflow: hidden; border: 2px solid var(--border-color);">
+                                <!-- Google Maps Embed Placeholder -->
+                                <div id="googleMapDendak"
+                                    style="height: 500px; background: linear-gradient(135deg, var(--card-bg) 25%, var(--border-color) 25%, var(--border-color) 50%, var(--card-bg) 50%, var(--card-bg) 75%, var(--border-color) 75%, var(--border-color) 100%); background-size: 40px 40px; position: relative;">
+                                    <!-- Simulated map markers for stores -->
+                                    <div class="map-marker" style="position: absolute; top: 35%; left: 35%;">
+                                        <i class="fas fa-map-pin fa-2x"
+                                            style="color: #00ffff; filter: drop-shadow(0 0 5px #00ffff);"></i>
+                                        <div class="marker-label"
+                                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 2px 8px; border-radius: 4px; white-space: nowrap; font-size: 12px;">
+                                            Bilbo - GameStore</div>
+                                    </div>
+                                    <div class="map-marker" style="position: absolute; top: 55%; left: 65%;">
+                                        <i class="fas fa-map-pin fa-2x"
+                                            style="color: #ff00ff; filter: drop-shadow(0 0 5px #ff00ff);"></i>
+                                        <div class="marker-label"
+                                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 2px 8px; border-radius: 4px; white-space: nowrap; font-size: 12px;">
+                                            Gasteiz - KomikiGunea</div>
+                                    </div>
+                                    <div class="map-marker" style="position: absolute; top: 45%; left: 25%;">
+                                        <i class="fas fa-map-pin fa-2x"
+                                            style="color: #00ff00; filter: drop-shadow(0 0 5px #00ff00);"></i>
+                                        <div class="marker-label"
+                                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 2px 8px; border-radius: 4px; white-space: nowrap; font-size: 12px;">
+                                            Donostia - GeekKafea</div>
+                                    </div>
+                                    <div class="map-marker" style="position: absolute; top: 60%; left: 45%;">
+                                        <i class="fas fa-map-pin fa-2x"
+                                            style="color: #ffff00; filter: drop-shadow(0 0 5px #ffff00);"></i>
+                                        <div class="marker-label"
+                                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: white; padding: 2px 8px; border-radius: 4px; white-space: nowrap; font-size: 12px;">
+                                            Iruñea - FrikiDenda</div>
+                                    </div>
+
+                                    <!-- Map controls simulation -->
+                                    <div class="map-controls"
+                                        style="position: absolute; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px;">
+                                        <button class="btn btn-custom btn-sm"
+                                            style="width: 40px; height: 40px; border-radius: 50%; padding: 0;">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                        <button class="btn btn-custom btn-sm"
+                                            style="width: 40px; height: 40px; border-radius: 50%; padding: 0;">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button class="btn btn-custom btn-sm"
+                                            style="width: 40px; height: 40px; border-radius: 50%; padding: 0;">
+                                            <i class="fas fa-crosshairs"></i>
+                                        </button>
+                                    </div>
+
+                                    <!-- Map watermark -->
+                                    <div
+                                        style="position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 4px; font-size: 12px;">
+                                        <i class="fas fa-map me-1"></i> Google Maps © Friki Map
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Map legend -->
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="badge" style="background-color: #00ffff; color: #000;"><i
+                                                class="fas fa-gamepad me-1"></i> Joko-dendak</span>
+                                        <span class="badge" style="background-color: #ff00ff; color: #fff;"><i
+                                                class="fas fa-book me-1"></i> Komiki-dendak</span>
+                                        <span class="badge" style="background-color: #00ff00; color: #000;"><i
+                                                class="fas fa-coffee me-1"></i> Friki Kafeak</span>
+                                        <span class="badge" style="background-color: #ffff00; color: #000;"><i
+                                                class="fas fa-store me-1"></i> Denda Orokorrak</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <small class="text-muted"><i class="fas fa-sync-alt me-1"></i> Azken eguneraketa:
+                                        2023-11-15</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buttons Panel (Smaller - 4 columns) -->
+                    <div class="col-lg-4 mb-4">
+                        <div class="content-card h-100">
+                            <h4 class="mb-4"><i class="fas fa-store me-2"></i>Denda Kontrolak</h4>
+
+                            <!-- Store Type Filter Buttons -->
+                            <div class="mb-4">
+                                <h5><i class="fas fa-filter me-2"></i>Denda Mota</h5>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-custom btn-block text-start" data-category="all">
+                                        <i class="fas fa-layer-group me-2"></i> Denda guztiak
+                                        <span class="badge bg-light text-dark float-end">25</span>
+                                    </button>
+                                    <button class="btn btn-outline-custom btn-block text-start" data-category="game-stores">
+                                        <i class="fas fa-gamepad me-2"></i> Joko-dendak
+                                        <span class="badge float-end">8</span>
+                                    </button>
+                                    <button class="btn btn-outline-custom btn-block text-start" data-category="comic-stores">
+                                        <i class="fas fa-book me-2"></i> Komiki-dendak
+                                        <span class="badge float-end">6</span>
+                                    </button>
+                                    <button class="btn btn-outline-custom btn-block text-start" data-category="cafes">
+                                        <i class="fas fa-coffee me-2"></i> Friki Kafeak
+                                        <span class="badge float-end">5</span>
+                                    </button>
+                                    <button class="btn btn-outline-custom btn-block text-start" data-category="general-stores">
+                                        <i class="fas fa-store me-2"></i> Denda Orokorrak
+                                        <span class="badge float-end">4</span>
+                                    </button>
+                                    <button class="btn btn-outline-custom btn-block text-start" data-category="events">
+                                        <i class="fas fa-calendar-alt me-2"></i> Ekitaldi lekuak
+                                        <span class="badge float-end">2</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Store Features Filter -->
+                            <div class="mb-4">
+                                <h5><i class="fas fa-star me-2"></i>Ezaugarriak</h5>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-custom btn-block">
+                                            <i class="fas fa-wifi me-1"></i> WiFi
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-custom btn-block">
+                                            <i class="fas fa-utensils me-1"></i> Jatetxea
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-custom btn-block">
+                                            <i class="fas fa-parking me-1"></i> Aparkalekua
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-custom btn-block">
+                                            <i class="fas fa-wheelchair me-1"></i> Sarbidea
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Store Actions -->
+                            <div class="mb-4">
+                                <h5><i class="fas fa-cogs me-2"></i>Ekintzak</h5>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-custom btn-block">
+                                        <i class="fas fa-route me-2"></i> Kokapena ikusi
+                                    </button>
+                                    <button class="btn btn-custom btn-block">
+                                        <i class="fas fa-phone me-2"></i> Deitu dendari
+                                    </button>
+                                    <button class="btn btn-custom btn-block">
+                                        <i class="fas fa-clock me-2"></i> Irekiera orduak
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Quick Stats -->
+                            <div class="mt-4 pt-3 border-top">
+                                <h6><i class="fas fa-chart-pie me-2"></i>Denda Estatistikak</h6>
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <div class="display-6">25</div>
+                                        <small>Dendak</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="display-6">4</div>
+                                        <small>Hiriak</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="display-6">85%</div>
+                                        <small>Irekita</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2023 Friki Map. Eskubide guztiak erreserbatuak. | Euskal Herriko Friki Mapa</p>
+            <p class="mb-0">Gai aktiboa: <span id="currentTheme">Light</span></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/estiloak.js"></script>
+</body>
+
+</html>
