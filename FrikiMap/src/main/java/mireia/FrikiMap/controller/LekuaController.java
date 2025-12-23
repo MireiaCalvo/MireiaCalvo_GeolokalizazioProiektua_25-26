@@ -11,6 +11,13 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/lekuak")
+@CrossOrigin(origins = {
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+    "http://127.0.0.1:8080",
+    "http://localhost:8080",
+    "file://"
+})
 public class LekuaController {
 
     @Autowired
@@ -20,26 +27,25 @@ public class LekuaController {
         this.lekuaRepository = lekuaRepository;
     }
 
-    // 🔍 Buscar por izena
-    @GetMapping("/bilatu/izena")
+    // izena-gatik ikusi
+    @GetMapping("/izena")
     public List<Lekua> bilatuIzena(@RequestParam String izena) {
         return lekuaRepository.findByIzenaContainingIgnoreCase(izena);
     }
 
-    // 🏷️ Buscar por kategoria (Denda / Jatetxea)
-    @GetMapping("/bilatu/kategoria")
+    // kategoriagatik ikusi
+    @GetMapping("/kategoria")
     public List<Lekua> bilatuKategoria(@RequestParam String kategoria) {
         return lekuaRepository.findByKategoria(kategoria);
     }
 
-    // 🏙️ Buscar por hiria
+    // hiriagatik ikusi
     @GetMapping("/bilatu/hiria")
     public List<Lekua> bilatuHiria(@RequestParam String hiria) {
         return lekuaRepository.findByHiria(hiria);
     }
-
-    // 🗺️ Datos mínimos para Leaflet
-
+   
+    // Leaflet-entzako datuak
     @GetMapping("/mapa")
     public List<LekuaMapDTO> lortuMapaDatuak() {
         List<Lekua> lekuak = lekuaRepository.findAll();
@@ -47,7 +53,7 @@ public class LekuaController {
         lekuak.forEach(l -> System.out.println(l.getIzena() + " -> " + l.getLocation()));
 
         return lekuak.stream()
-                .map(l -> new LekuaMapDTO(l.getIzena(), l.getKategoria(), l.getLatitude(), l.getLongitude()))
+                .map(l -> new LekuaMapDTO(l.getIzena(), l.getKategoria(), l.getHiria(), l.getLatitude(), l.getLongitude()))
                 .collect(Collectors.toList());
     }
 
