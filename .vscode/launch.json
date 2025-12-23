@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FrikiMapApplication<FrikiMap>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "mireia.FrikiMap.FrikiMapApplication",
+            "projectName": "FrikiMap",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
