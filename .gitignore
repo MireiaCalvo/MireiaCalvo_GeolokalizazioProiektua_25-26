@@ -1,0 +1,5 @@
+# Spring Boot - config sensible
+application.properties
+application.yml
+application-*.properties
+application-*.yml
