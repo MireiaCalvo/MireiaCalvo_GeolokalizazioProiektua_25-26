@@ -1,21 +1,22 @@
 package mireia.FrikiMap.model;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
-
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
+import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "lekuak")
 public class Lekua {
 
     @Id
-    private ObjectId id;
+    private String id;
 
     private String izena;
     private String kategoria;
     private String hiria;
 
+    @GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
     private GeoJsonPoint location;
 
     public Lekua() {
@@ -25,14 +26,16 @@ public class Lekua {
         this.izena = izena;
         this.kategoria = kategoria;
         this.hiria = hiria;
+        // GeoJsonPoint uses (longitude, latitude) order
         this.location = new GeoJsonPoint(longitud, latitud);
     }
 
-    public ObjectId getId() {
+    // GETTERS ETA SETTERS
+    public String getId() {
         return id;
     }
 
-    public void setId(ObjectId id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -68,11 +71,11 @@ public class Lekua {
         this.location = location;
     }
 
-    public double getLatitud() {
-        return location.getY();
+    public double getLatitude() {
+        return location != null ? location.getY() : 0.0;
     }
 
-    public double getLongitud() {
-        return location.getX();
+    public double getLongitude() {
+        return location != null ? location.getX() : 0.0;
     }
 }

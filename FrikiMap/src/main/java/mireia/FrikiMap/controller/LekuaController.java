@@ -4,15 +4,16 @@ import mireia.FrikiMap.model.Lekua;
 import mireia.FrikiMap.model.LekuaMapDTO;
 import mireia.FrikiMap.model.LekuaRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/lekuak")
-@CrossOrigin
 public class LekuaController {
 
+    @Autowired
     private final LekuaRepository lekuaRepository;
 
     public LekuaController(LekuaRepository lekuaRepository) {
@@ -46,7 +47,7 @@ public class LekuaController {
         lekuak.forEach(l -> System.out.println(l.getIzena() + " -> " + l.getLocation()));
 
         return lekuak.stream()
-                .map(l -> new LekuaMapDTO(l.getIzena(), l.getLatitud(), l.getLongitud()))
+                .map(l -> new LekuaMapDTO(l.getIzena(), l.getLatitude(), l.getLongitude()))
                 .collect(Collectors.toList());
     }
 

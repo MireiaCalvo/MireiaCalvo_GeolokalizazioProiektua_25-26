@@ -2,17 +2,13 @@ package mireia.FrikiMap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
+@EnableMongoRepositories(basePackages = "mireia.FrikiMap.model")
 public class FrikiMapApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(FrikiMapApplication.class)
-            .properties(
-                "spring.data.mongodb.uri=mongodb+srv://mireia:Admin123@frikimap.ofdyxsr.mongodb.net/FrikiMap",
-                "server.port=8081"
-            )
-            .run(args);
+        SpringApplication.run(FrikiMapApplication.class, args);
     }
 }

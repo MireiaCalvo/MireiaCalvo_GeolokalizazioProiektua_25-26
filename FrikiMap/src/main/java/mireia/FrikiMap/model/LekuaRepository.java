@@ -1,10 +1,14 @@
 package mireia.FrikiMap.model;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
-public interface LekuaRepository extends MongoRepository<Lekua, ObjectId> {
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface LekuaRepository extends MongoRepository<Lekua, String>{
+
+    List<Lekua> findAll();
 
     List<Lekua> findByIzenaContainingIgnoreCase(String izena);
 
