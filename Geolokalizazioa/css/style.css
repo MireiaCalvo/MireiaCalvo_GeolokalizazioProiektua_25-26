@@ -214,7 +214,7 @@ h2, h3, h4 {
 /* FIXED BUTTON STYLES - Better contrast */
 .btn-custom {
     background-color: var(--primary-color);
-    color: #ffffff !important; /* Always white text for contrast */
+    color: #ffffff !important; /* Keep white text */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -223,6 +223,14 @@ h2, h3, h4 {
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--primary-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Add text shadow for better readability */
+}
+
+.btn-custom.active {
+    background-color: var(--accent-color) !important; /* Use accent color for selected state */
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 15px rgba(139, 0, 255, 0.4); /* Add glow effect */
+    transform: translateY(-2px);
 }
 
 .btn-custom:hover {
@@ -237,13 +245,20 @@ h2, h3, h4 {
 .btn-outline-custom {
     background-color: transparent;
     border: 2px solid var(--border-color);
-    color: var(--text-color) !important; /* Use theme text color */
+    color: var(--text-color) !important;
     padding: 10px 20px;
     border-radius: 5px;
     transition: all 0.3s;
     font-family: 'Courier New', monospace;
     font-weight: bold;
     text-align: left;
+}
+
+.btn-outline-custom.active {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.3);
 }
 
 .btn-outline-custom:hover {
@@ -255,16 +270,23 @@ h2, h3, h4 {
 
 /* Specific fixes for dark theme buttons */
 .dark-theme .btn-custom {
-    background-color: var(--primary-color); /* Softer cyan */
-    color: #000000 !important; /* Black text for contrast on cyan */
-    font-weight: 700; /* Bolder text */
+    background-color: var(--primary-color);
+    color: #ffffff !important; /* Change from #000000 to #ffffff */
+    font-weight: 700;
     border-color: var(--primary-color);
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Stronger shadow for dark background */
+}
+
+.dark-theme .btn-custom.active {
+    background-color: var(--accent-color) !important; /* Green in dark mode */
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 15px rgba(0, 204, 0, 0.5);
+    color: #000000 !important; /* Black text on green */
 }
 
 .dark-theme .btn-custom:hover {
-    background-color: var(--accent-color); /* Softer green */
-    color: #000000 !important; /* Black text on green */
+    background-color: var(--accent-color);
+    color: #ffffff !important; /* Change from #000000 to #ffffff */
     border-color: var(--accent-color);
 }
 
@@ -275,6 +297,13 @@ h2, h3, h4 {
     font-weight: 600;
 }
 
+.dark-theme .btn-outline-custom.active {
+    background-color: var(--primary-color) !important; /* Cyan in dark mode */
+    border-color: var(--primary-color) !important;
+    color: #000000 !important; /* Black text on cyan */
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
+}
+
 .dark-theme .btn-outline-custom:hover {
     background-color: var(--primary-color); /* Softer cyan */
     border-color: var(--primary-color);
@@ -283,24 +312,27 @@ h2, h3, h4 {
 
 /* Badge styling in buttons */
 .btn-outline-custom .badge {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: var(--text-color);
+    background-color: rgba(0, 0, 0, 0.15);
+    color: var(--text-color) !important;
     font-weight: 600;
 }
 
 .dark-theme .btn-outline-custom .badge {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--text-color) !important;
 }
 
 .btn-custom .badge {
     background-color: rgba(255, 255, 255, 0.3);
-    color: #000000;
+    color: #ffffff !important; /* Change from #000000 to #ffffff */
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .dark-theme .btn-custom .badge {
     background-color: rgba(0, 0, 0, 0.3);
-    color: #ffffff;
+    color: #ffffff !important; /* Keep white text in dark mode too */
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 /* Map control buttons */

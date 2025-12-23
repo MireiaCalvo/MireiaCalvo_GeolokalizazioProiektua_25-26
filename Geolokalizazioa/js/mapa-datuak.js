@@ -100,7 +100,6 @@ async function loadDataFromAPI() {
             await tryAlternativeMethods();
         } else {
             updateApiStatus('❌ Errorea: ' + error.message, 'error');
-            loadMockData();
         }
     }
 }
@@ -154,7 +153,6 @@ async function tryAlternativeMethods() {
     // If all methods fail, use mock data
     console.log('❌ All alternative methods failed, using mock data');
     updateApiStatus('❌ CORS arazoa - Adibide datuak', 'warning');
-    loadMockData();
 }
 
 // JSONP approach for CORS
@@ -197,7 +195,7 @@ function processApiData(data) {
             latitude: item.latitude || item.lat || item.latitud,
             longitude: item.longitude || item.lng || item.longitud,
             helbidea: item.helbidea || item.address || item.direccion || '',
-            hiria: item.hiria || item.city || item.ciudad || 'hiria',
+            hiria: item.hiria || item.city || item.ciudad || '',
             deskribapena: item.deskribapena || item.description || item.descripcion || '',
             webgunea: item.webgunea || item.website || item.sitioWeb || ''
         }));
@@ -220,24 +218,24 @@ function processApiData(data) {
     }
     
     // Update UI with loaded data
-    updateUIWithData();
+    eguneratuUIDatuekin();
     
     // Display markers on map
-    displayMarkers();
+    jarriMarkadoreak();
     
     // Update last update time
     updateLastUpdateTime();
 }
 
 // Display markers on the map
-function displayMarkers() {
+function jarriMarkadoreak() {
     console.log('📍 Displaying markers...');
     
     // Clear existing markers
-    clearMarkers();
+    garbituMarkadoreak();
     
     // Filter locations based on active filters
-    const filteredLocations = filterLocations();
+    const filteredLocations = filtratuKokalekuak();
     
     console.log(`📍 Displaying ${filteredLocations.length} filtered locations`);
     
@@ -339,10 +337,10 @@ function createPopupContent(location) {
                 <i class="fas fa-map-marker-alt" style="color: #666; margin-right: 5px;"></i>
                 ${location.helbidea}
             </div>` : ''}
-            ${location.herria ? `
+            ${location.hiria ? `
             <div style="margin-bottom: 8px;">
                 <i class="fas fa-city" style="color: #666; margin-right: 5px;"></i>
-                ${location.herria}
+                ${location.hiria}
             </div>` : ''}
             ${location.deskribapena ? `
             <div style="margin-bottom: 8px; font-style: italic;">
@@ -362,7 +360,7 @@ function createPopupContent(location) {
 }
 
 // Filter locations based on active filters
-function filterLocations() {
+function filtratuKokalekuak() {
     return allLocations.filter(location => {
         // Get category from your API data
         let category = (location.kategoria || 'denda').toLowerCase();
@@ -373,7 +371,7 @@ function filterLocations() {
         }
         
         // Get city from your API data
-        const city = location.herria || '';
+        const city = location.hiria || '';
         
         // Category filter
         if (activeCategory !== 'all' && category !== activeCategory) {
@@ -390,13 +388,13 @@ function filterLocations() {
 }
 
 // Clear all markers from map
-function clearMarkers() {
+function garbituMarkadoreak() {
     markers.forEach(marker => map.removeLayer(marker));
     markers = [];
 }
 
 // Update UI with loaded data
-function updateUIWithData() {
+function eguneratuUIDatuekin() {
     console.log('📊 Updating UI with data...');
     
     if (allLocations.length === 0) {
@@ -440,7 +438,7 @@ function updateUIWithData() {
     // Count unique cities
     const cities = new Set();
     allLocations.forEach(loc => {
-        const city = loc.herria;
+        const city = loc.hiria;
         if (city) cities.add(city);
     });
     
@@ -510,14 +508,14 @@ function updateApiStatus(message, type = 'info') {
 // Filter by category
 function filterByCategory(category) {
     activeCategory = category;
-    displayMarkers();
+    jarriMarkadoreak();
     updateActiveFilterButtons();
 }
 
 // Filter by city
 function filterByCity(city) {
     activeCity = city === activeCity ? null : city;
-    displayMarkers();
+    jarriMarkadoreak();
     updateActiveCityButtons();
 }
 
@@ -549,59 +547,6 @@ function updateActiveCityButtons() {
             button.classList.add('btn-custom');
         }
     });
-}
-
-// Mock data that matches your API structure
-function loadMockData() {
-    console.log('🔄 Loading mock data that matches your API structure...');
-    
-    // Mock data matching your LekuaMapDTO structure
-    allLocations = [
-        {
-            izena: "Bilboko Friki Denda",
-            kategoria: "denda",
-            latitude: 43.2630,
-            longitude: -2.9340,
-            helbidea: "Bilbo, Kale Nagusia 123",
-            herria: "Bilbo",
-            deskribapena: "Friki produktu anitzak, jokoak eta komikiak",
-            webgunea: "https://example.com"
-        },
-        {
-            izena: "Gasteizko Jatetxea",
-            kategoria: "jatetxea",
-            latitude: 42.8465,
-            longitude: -2.6722,
-            helbidea: "Gasteiz, Jatetxe Kalea 45",
-            herria: "Gasteiz",
-            deskribapena: "Friki giroko jatetxea",
-            webgunea: ""
-        },
-        {
-            izena: "Donostiako Denda",
-            kategoria: "denda",
-            latitude: 43.3183,
-            longitude: -1.9812,
-            helbidea: "Donostia, Denda Kalea 67",
-            herria: "Donostia",
-            deskribapena: "Bideojoko eta mahai-joko denda",
-            webgunea: "https://denda.eus"
-        },
-        {
-            izena: "Iruñeko Jatetxea",
-            kategoria: "jatetxea",
-            latitude: 42.8125,
-            longitude: -1.6458,
-            helbidea: "Iruñea, Plaza Nagusia 89",
-            herria: "Iruñea",
-            deskribapena: "Friki kafetegia eta jatetxea",
-            webgunea: ""
-        }
-    ];
-    
-    updateUIWithData();
-    displayMarkers();
-    updateLastUpdateTime();
 }
 
 // Setup event listeners
