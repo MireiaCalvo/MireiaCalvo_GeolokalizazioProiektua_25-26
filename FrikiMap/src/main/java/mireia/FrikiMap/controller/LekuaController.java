@@ -53,7 +53,7 @@ public class LekuaController {
         lekuak.forEach(l -> System.out.println(l.getIzena() + " -> " + l.getLocation()));
 
         return lekuak.stream()
-                .map(l -> new LekuaMapDTO(l.getIzena(), l.getKategoria(), l.getHiria(), l.getLatitude(), l.getLongitude()))
+                .map(l -> new LekuaMapDTO(l.getIzena(), l.getKategoria(), l.getHiria(), l.getHelbidea(), l.getLatitude(), l.getLongitude()))
                 .collect(Collectors.toList());
     }
 

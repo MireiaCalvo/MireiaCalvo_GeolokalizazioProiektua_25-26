@@ -15,6 +15,7 @@ public class Lekua {
     private String izena;
     private String kategoria;
     private String hiria;
+    private String helbidea;
 
     @GeoSpatialIndexed(type = GeoSpatialIndexType.GEO_2DSPHERE)
     private GeoJsonPoint location;
@@ -22,10 +23,11 @@ public class Lekua {
     public Lekua() {
     }
 
-    public Lekua(String izena, String kategoria, String hiria, double longitud, double latitud) {
+    public Lekua(String izena, String kategoria, String hiria, String helbidea, double longitud, double latitud) {
         this.izena = izena;
         this.kategoria = kategoria;
         this.hiria = hiria;
+        this.helbidea = helbidea;
         // GeoJsonPoint uses (longitude, latitude) order
         this.location = new GeoJsonPoint(longitud, latitud);
     }
@@ -61,6 +63,14 @@ public class Lekua {
 
     public void setHiria(String hiria) {
         this.hiria = hiria;
+    }
+
+    public String getHelbidea(){
+        return helbidea;
+    }
+
+    public void setHelbidea(String helbidea){
+        this.helbidea = helbidea;
     }
 
     public GeoJsonPoint getLocation() {
