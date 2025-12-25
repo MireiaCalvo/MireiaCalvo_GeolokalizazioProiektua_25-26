@@ -26,24 +26,6 @@ public class LekuaController {
     public LekuaController(LekuaRepository lekuaRepository) {
         this.lekuaRepository = lekuaRepository;
     }
-
-    // izena-gatik ikusi
-    @GetMapping("/izena")
-    public List<Lekua> bilatuIzena(@RequestParam String izena) {
-        return lekuaRepository.findByIzenaContainingIgnoreCase(izena);
-    }
-
-    // kategoriagatik ikusi
-    @GetMapping("/kategoria")
-    public List<Lekua> bilatuKategoria(@RequestParam String kategoria) {
-        return lekuaRepository.findByKategoria(kategoria);
-    }
-
-    // hiriagatik ikusi
-    @GetMapping("/bilatu/hiria")
-    public List<Lekua> bilatuHiria(@RequestParam String hiria) {
-        return lekuaRepository.findByHiria(hiria);
-    }
    
     // Leaflet-entzako datuak
     @GetMapping("/mapa")
